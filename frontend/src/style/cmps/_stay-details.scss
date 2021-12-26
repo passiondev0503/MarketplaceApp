@@ -1,0 +1,363 @@
+.stay-details {
+    & h1 {
+        font-size: rem(26px);
+        padding-top: 15px;
+    }
+    .detsils-header {
+        padding-bottom: 15px;
+        padding-top: 15px;
+        @include for-mobile-layout {
+            font-size: rem(10px) !important;
+        }
+        >* {
+            padding-right: 10px;
+        }
+        & svg {
+            color: $clr1;
+            height: 15px;
+            padding-top: 3px;
+        }
+        & a {
+            text-decoration: underline;
+            color: rgb(127, 127, 127)
+        }
+    }
+}
+
+.imgs-details {
+    & img {
+        width: 100%;
+        object-fit: cover;
+    }
+    @include for-mobile-layout {
+        display: block !important;
+    }
+    @include for-narrow-layout {
+        display: none !important;
+    }
+    @include for-normal-layout {
+        display: none !important;
+    }
+    @include for-wide-layout {
+        display: none !important;
+    }
+}
+
+.img-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+    grid-template-rows: 176px 176px;
+    gap: 8px;
+    width: 100%;
+    & img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    & img:first-child {
+        grid-column: 1/span 2;
+        grid-row: 1/span 2;
+        border-top-left-radius: 13px;
+        border-bottom-left-radius: 13px;
+    }
+    & img:nth-child(3) {
+        border-top-right-radius: 13px;
+    }
+    & img:nth-child(5) {
+        border-bottom-right-radius: 13px;
+    }
+    @include for-mobile-layout {
+        display: none !important;
+    }
+    // @include for-narrow-layout {
+    // }
+    // @include for-normal-layout {
+    // }
+    // @include for-wide-layout {
+    //     left: 0px !important;
+    // }
+}
+
+.info-container {
+    display: flex;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #00000029;
+    @include for-mobile-layout {
+        flex-direction: column !important;
+    }
+}
+
+.stay-info {
+    display: flex;
+    flex-direction: column;
+    max-width: 640px;
+    // padding-right: 95px;
+    .info-header {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #00000029;
+        align-items: center;
+        padding-bottom: 20px;
+        .stay-name {
+            text-transform: capitalize;
+        }
+        & img {
+            object-fit: contain;
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+        }
+        & h2 {
+            font-size: rem(22px);
+        }
+    }
+    .main-info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 20px;
+        line-height: 24px;
+        .general-info {
+            & div {
+                display: flex;
+                & div:last-child {
+                    padding-left: 10px;
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+            & svg {
+                margin-top: 10px;
+                height: 25px;
+            }
+        }
+        & div:last-child {
+            padding-bottom: 20px;
+        }
+        & span {
+            font-size: rem(14.5px);
+        }
+        .amenities {
+            padding: 0;
+            & ul {
+                padding: 0;
+                list-style: none;
+                display: flex;
+                flex-grow: 1;
+                >* {
+                    flex-basis: 50%;
+                }
+                & li {
+                    display: flex;
+                    padding: 5px;
+                    & svg {
+                        height: 23px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+    .description {
+        border-top: 1px solid #00000029;
+        border-bottom: 1px solid #00000029;
+        gap: 50px;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        & h2 {
+            font-size: rem(22px);
+            line-height: 24px;
+            padding-bottom: 20px;
+        }
+        & p {
+            font-size: rem(14.5px);
+            line-height: 24px;
+        }
+    }
+}
+
+.reviews {
+    .shown {
+        display: block;
+    }
+    .hidden {
+        display: none;
+    }
+    & h1 {
+        font-size: rem(22px);
+    }
+    & svg {
+        color: $clr1;
+        height: 20px;
+        padding-top: 3px;
+    }
+    .review-details {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        max-width: 430px;
+        & svg {
+            color: $clr1;
+            height: 15px;
+            padding-top: 3px;
+        }
+        & img {
+            object-fit: contain;
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+        }
+        & div:first-child {
+            display: flex;
+            padding-bottom: 5px;
+            .user-details {
+                padding-top: 10px;
+                padding-left: 20px;
+                & span {
+                    font-family: manrope-bold;
+                }
+                & div {
+                    font-size: rem(14px);
+                    color: rgb(189, 188, 188);
+                }
+            }
+        }
+    }
+    .reviews-modal {
+        border: none;
+        border: 1px solid rgb(127, 127, 127);
+        border-radius: 7px;
+        padding-left: 40px;
+        width: 75%;
+        margin: auto;
+        max-height: 80vh;
+        overflow: scroll;
+        position: absolute;
+        background-color: #fff;
+        & button {
+            position: fixed;
+            top: 10px;
+            right: 15px;
+            border: none;
+            background: #0000;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
+    .open-modal {
+        top: 1338px;
+        transform: translate(4%, 58%);
+    }
+    .show-more {
+        cursor: pointer;
+        padding: 10px;
+        background-color: white;
+        border: 1px solid rgb(127, 127, 127);
+        border-radius: 7px;
+        margin-bottom: 10px;
+    }
+    .add-review-txt {
+        & textarea {
+            margin: 20px 0;
+            padding: 20px;
+            font-size: inherit;
+            font-family: inherit;
+            width: 100%;
+            height: 150px;
+            resize: none;
+            border-radius: 13px;
+            border-color: #bdbcbc;
+        }
+        & button {
+            background-color: #ff385c;
+            background-image: linear-gradient( 90deg, #e61e4d 0, #e31c5f 50%, #d70466);
+            padding: 7px 40px;
+            border-radius: 5px;
+            color: #fff;
+            font-size: .875rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+    }
+    .add-review {
+        & h1 {
+            border-top: 1px solid #00000029;
+        }
+    }
+    .user-rate {
+        .el-icon-star-on {
+            color: $clr1 !important;
+        }
+    }
+    .review-container {
+        display: flex;
+        flex-wrap: wrap;
+        >* {
+            flex-basis: 50%;
+            @include for-mobile-layout {
+                padding: 10px !important;
+            }
+        }
+    }
+}
+
+.map-details {
+    border-top: 1px solid #00000029;
+    & h1 {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .map {
+        margin-bottom: 30px;
+    }
+    & p {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        line-height: 24px;
+    }
+}
+
+.lds-facebook {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 100vh;
+    margin: auto;
+    margin-top: 150px;
+}
+
+.lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    width: 16px;
+    background: $clr1;
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.lds-facebook div:nth-child(1) {
+    left: 8px;
+    animation-delay: -0.24s;
+}
+
+.lds-facebook div:nth-child(2) {
+    left: 32px;
+    animation-delay: -0.12s;
+}
+
+.lds-facebook div:nth-child(3) {
+    left: 56px;
+    animation-delay: 0;
+}
+
+@keyframes lds-facebook {
+    0% {
+        top: 8px;
+        height: 64px;
+    }
+    50%,
+    100% {
+        top: 24px;
+        height: 32px;
+    }
+}

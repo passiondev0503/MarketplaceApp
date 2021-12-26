@@ -1,0 +1,19 @@
+[{
+        "_id": "u101",
+          "fullName": "admin",
+          "userName": "orly@amdadi.com",
+          "password": "admin",
+          "isAdmin": true,
+          "imgUrl": "https://source.unsplash.com/random/100x100/?face"
+    },
+    {
+        "_id": "u102",
+          "fullName": "James Fond",
+          "userName": "James@rocket.com",
+          "password": "1",
+          "isAdmin": false,
+          "imgUrl": "https://source.unsplash.com/random/100x100/?face"
+    }
+
+
+]

@@ -1,0 +1,83 @@
+.edit-container{
+    display: flex;
+    flex-direction: row;
+    & button{
+        color: white;
+        background-color: $clr1;
+        border-radius: 5px;
+        padding: 10px;
+        border: none;
+    }
+    & a{
+        &:hover{
+            color: $clr1;
+            cursor: pointer;
+        }
+    }
+    .page-btns{
+        display: flex;
+        width: 79%;
+        justify-content: space-between;
+        >*{
+            &:hover{
+                cursor: pointer;
+            }
+            &:disabled{
+                cursor:not-allowed;
+            }
+        }
+    }
+    .edit-side-show{
+ 
+flex-basis: 55%;
+        height: 550px;
+        .side-image{
+            width: 100%;
+            height:100%;
+            object-fit: cover;
+        }
+    }
+    .edit-main-show{
+
+        align-items: center;
+        background-color: $clr3;
+        flex-basis: 45%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+    .edit-header{
+        font-family: manrope-bold;
+    }
+    .edit-card{
+        >*{
+            margin: 5px 0;
+        }
+        .card-address{
+            >*{
+                margin: 10px;
+            }
+
+        }
+        .edit-input{
+            background-color: transparent;
+            height: 20px;
+            width: 120px;
+            border: none;
+            border-bottom: solid 1px rgb(34, 34, 34);
+        }
+        .edit-input-small{
+            height: 30px;
+            width: 60px;
+        }
+        textarea{
+            background-color: transparent;
+            border-radius: 5px;
+            border: solid 1px rgb(34, 34, 34);
+            resize: none;
+        }
+
+        
+    }
+}

@@ -1,0 +1,88 @@
+.main-login {
+    height: 77vh;
+}
+
+.login-form {
+    margin: auto;
+    margin-top: 40px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 10px;
+    padding: 20px;
+    .login-header {
+        text-align: center;
+        border-bottom: 1px solid #dbdbdb;
+        width: 100%;
+        padding: 15px 20px;
+    }
+    .login-body {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        input {
+            height: auto;
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #b6b6b6;
+        }
+        input:first-of-type {
+            border-top-left-radius: 13px;
+            border-top-right-radius: 13px;
+        }
+        input:last-of-type {
+            border-bottom-left-radius: 13px;
+            border-bottom-right-radius: 13px;
+        }
+        h2 {
+            font-weight: unset;
+            font-size: 24px;
+            padding-bottom: 25px;
+            width: 100%;
+            align-self: flex-start;
+            padding-top: 20px;
+        }
+        .login-btn {
+            cursor: pointer;
+            width: 100%;
+            background-color: #ff385c;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 13px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            
+            &.wrong{
+                margin: 12px 0 20px 0;
+            }
+            &:hover{
+            background-color: #f82249ec;
+            }
+        }
+        p{
+            margin-top: 5px;
+            color: #ff385c;
+        }
+    }
+
+    .user-btns-container{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .new-user-btn {
+            border: none;
+            background-color: transparent;
+            font-weight: 600;
+            font-size: .875rem;
+            color: #484848;
+            cursor: pointer;
+            padding-bottom: 20px;
+            align-self: flex-start;
+        }
+    }
+}
+

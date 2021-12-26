@@ -1,0 +1,36 @@
+.app-footer {
+    font-size: rem(14px);
+    background-color: $clr4;
+    padding: 10px;
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+        margin: auto;
+        .icons {
+            display: flex;
+            & div:last-child {
+                & svg {
+                    margin-right: 20px;
+                }
+            }
+            & div:first-child {
+                margin-right: 20px;
+                & span {
+                    margin-left: 10px;
+                    margin-bottom: 3px;
+                }
+                & a {
+                    text-decoration: underline;
+                }
+                & svg {
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+    & svg {
+        height: 20px;
+        margin-right: 10px;
+    }
+}

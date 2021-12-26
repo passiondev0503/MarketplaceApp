@@ -1,0 +1,25 @@
+// COLOR PALETTE
+$clr1: rgb(255, 56, 92); //logo & btns
+$clr2: rgb(34, 34, 34); //font-color
+$clr3: rgb(229, 229, 229); // hover-filter
+$clr4: rgb(247, 247, 247); //footer
+$clr5: #870193; //explor font btn
+// LAYOUT
+
+$layoutPadding: 24px;
+$exploreLayoutPadding: 36px;
+// LAYOUT BREAKPOINTS
+$break-narrow: 460px; //margin 30px
+$break-normal: 750px; //margin 30px
+$break-wide: 1360px; //margin-40px
+$padded-break-narrow: $break-narrow+$layoutPadding * 2;
+$padded-break-normal: $break-normal+$layoutPadding * 2;
+$padded-break-wide: $break-wide+$layoutPadding * 2;
+
+
+$details-break-narrow: 460px; 
+$details-break-normal: 750px; 
+$details-break-wide: 1100px;
+$padded-details-break-narrow: $details-break-narrow+$layoutPadding * 2;
+$padded-details-break-normal: $details-break-normal+$layoutPadding * 2;
+$padded-details-break-wide: $details-break-wide+$layoutPadding * 2;
