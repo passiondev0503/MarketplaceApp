@@ -1,7 +1,7 @@
 <template>
 <div  class="header-container">
 
-<dynamic-header :explore="explore" :details="details" :isScroll="isScroll"/>
+<dynamic-header :isScroll="isScroll"/>
 </div>
 
 </template>
@@ -12,10 +12,6 @@ import dynamicHeader from '@/cmps/dynamic-header'
 import {orderService} from '@/services/order.service'
 import {eventBusService, SHOW_MSG} from '@/services/event-bus.service'
 export default {
-  props:{
-    explore:Boolean,
-    details:Boolean
-  },
 
   data() {
     return {

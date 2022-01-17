@@ -16,7 +16,7 @@
 
 
 
-  <header class="app-header full fixed white" :class="[{'explore-layout' : explore , 'details-layout' : details},{'fixed' : explore , 'not-fixed' : details}]">
+  <header class="app-header full fixed white" :class="[{'explore-layout fixed' : explore , 'details-layout not-fixed' : details}]">
     <div class="main-header">
       <div @click="goToHome()" class="logo" :class="{details:details}">
         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="airbnb" class="svg-inline--fa fa-airbnb fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

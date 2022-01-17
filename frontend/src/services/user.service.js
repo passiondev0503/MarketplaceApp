@@ -57,6 +57,8 @@ async function login(username, password) {
 }
 
 async function signup(userCred) {
+    console.log(userCred);
+
     // userCred.imgUrl ="https://source.unsplash.com/random/100x100/?face"
     // const user = await storageService.post('user', userCred)
     const user = await httpService.post('auth/signup', userCred)
