@@ -28,11 +28,7 @@ export default {
   },
   created() {
   },
-  methods: {
-    setFilter(filterBy){
-      this.$emit('setFilter',filterBy)
-    }
-  },
+
   computed: {
     userId(){
       if(this.$store.getters.user) return this.$store.getters.user._id

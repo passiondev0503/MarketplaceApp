@@ -134,10 +134,14 @@ header {
         border-bottom: whitesmoke solid 2px;
     }
     .page-link {
-        text-decoration: none;
+        text-decoration: none; 
          :not(.explore-link) {
             color: white;
         }
+    }
+    .explore-link{
+        font-family:manrope-bold; 
+        color:$clr2;
     }
     .header-container {
         width: 100%;

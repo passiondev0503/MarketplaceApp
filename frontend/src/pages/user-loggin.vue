@@ -101,7 +101,6 @@ export default {
         this.$router.push("/stay");
         showMsg("User logged in:" + JSON.parse(JSON.stringify(user.username)));
       } catch(err){
-  // alert(`Wrong username or password`);
   this.wrongUser=true
         this.user = {
           username: null,

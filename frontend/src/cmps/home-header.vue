@@ -1,11 +1,16 @@
 <template>
   <div>
-    <div class="header-container" >
+    <div class="header-container">
       <div
         class="narrow-mobile-container main-layout full"
-        :class="[{ white: isWhite },{ display: search}] "
+        :class="[{ white: isWhite }, { display: search }]"
       >
-        <button v-if="!search" @click="search=!search" class="narrow-mobile-btn" :class="{ greyish: isWhite }">
+        <button
+          v-if="!search"
+          @click="search = !search"
+          class="narrow-mobile-btn"
+          :class="{ greyish: isWhite }"
+        >
           <p>
             <svg
               aria-hidden="true"
@@ -26,8 +31,11 @@
           <p>Where are you going?</p>
         </button>
       </div>
-<stays-modal @back="setSearch" class="search-screen-modal" v-if="search"/>
-
+      <stays-modal
+        @back="setSearch"
+        class="search-screen-modal"
+        v-if="search"
+      />
 
       <header
         class="app-header full fixed main-layout"
@@ -69,7 +77,7 @@
             v-show="open || (user !== 'home' && !isScroll)"
             class="changing-middle-container filter-open"
           >
-            <stay-filter :class="{white:isWhite}" :order="order" />
+            <stay-filter :class="{ white: isWhite }" :order="order" />
           </div>
           <div class="user-options">
             <button class="wrapping-btn small explore-btn">
@@ -95,69 +103,8 @@
               >
             </button>
 
-            <button class="wrapping-btn big right-btn">
-              <el-dropdown trigger="click">
-                <span class="el-dropdown-link">
-                  <el-badge @click="OpenProfile" v-if="newNotification" :value="1" class="item">
-                    <button class="header-btn">
-                      ☰
-                      <img v-if="user" :src="user.imgUrl" alt="" />
-                      <img
-                        v-else
-                        src="https://res.cloudinary.com/di0utpbop/image/upload/v1638552963/airdnd/pngfind.com-default-image-png-6764065_c91w16.png"
-                      />
-                    </button>
-                  </el-badge>
-
-                  <button v-else class="header-btn">
-                    ☰
-                    <img v-if="user" :src="user.imgUrl" alt="" />
-                    <img
-                      v-else
-                      src="https://res.cloudinary.com/di0utpbop/image/upload/v1638552963/airdnd/pngfind.com-default-image-png-6764065_c91w16.png"
-                    />
-                  </button>
-                </span>
-                <el-dropdown-menu slot="dropdown">
-                  <router-link
-                    style="text-decoration: none"
-                    :disabled="user"
-                    to="/login"
-                  >
-                    <el-dropdown-item>Log in</el-dropdown-item>
-                  </router-link>
-
-                  <router-link
-                    style="text-decoration: none"
-                    :disabled="user"
-                    to="/login/signup"
-                  >
-                    <el-dropdown-item>Sign up</el-dropdown-item>
-                  </router-link>
-
-                  <router-link style="text-decoration: none" to="/stay/edit">
-                    <el-dropdown-item>Host your home</el-dropdown-item>
-                  </router-link>
-                  <router-link
-                    v-if="user"
-                    style="text-decoration: none"
-                    :to="'/profile/' + user._id"
-                  >
-                    <el-dropdown-item>Profile</el-dropdown-item>
-                  </router-link>
-                  <router-link
-                    v-if="user"
-                    @click="logOut"
-                    style="text-decoration: none"
-                    :to="'/'"
-                  >
-                    <el-dropdown-item v-if="user" @click.native="logOut()"
-                      >Log out</el-dropdown-item
-                    >
-                  </router-link>
-                </el-dropdown-menu>
-              </el-dropdown>
-            </button>
+            <drop-down-menu @logOut="logOut" :notification="notification"/>
+            
           </div>
         </div>
       </header>
@@ -168,7 +115,8 @@
 <script>
 import stayFilter from "@/cmps/stay-filter";
 import stayFilterSmall from "@/cmps/stay-filter-small";
-import staysModal from "@/cmps/stays-modal"
+import staysModal from "@/cmps/stays-modal";
+import dropDownMenu from './drop-down-menu.vue'
 import { orderService } from "@/services/order.service";
 
 export default {
@@ -181,27 +129,26 @@ export default {
       loggedInUser: null,
       open: false,
       order: null,
-      search:false,
-      newNotification: false
+      search: false,
+      newNotification: false,
     };
   },
   created() {
     window.addEventListener("scroll", this.handleScroll);
     this.order = orderService.getEmptyOrder();
-        if (this.user) this.createOrderSocket()
-
+    if (this.user) this.createOrderSocket();
   },
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
-    setSearch(){
-this.search=false
+    setSearch() {
+      this.search = false;
     },
     goTo(here) {
       this.$router.push(here);
     },
-    toggleFilter() { 
+    toggleFilter() {
       this.open = true;
     },
     handleScroll(e) {
@@ -211,22 +158,21 @@ this.search=false
     },
     logOut() {
       this.$store.dispatch({ type: "logoutUser" });
-        socketService.off('hostOrders')
+      socketService.off("hostOrders");
       // this.$router.push('/')
     },
-      createOrderSocket(){
-      socketService.on('hostOrders', this.orderNotification)
+    createOrderSocket() {
+      socketService.on("hostOrders", this.orderNotification);
     },
-    orderNotification(order){
-      if(order.hostId === this.user._id){
-        this.newNotification = true
+    orderNotification(order) {
+      if (order.hostId === this.user._id) {
+        this.newNotification = true;
       }
     },
-    OpenProfile(){
-      this.newNotification = false
-      this.$router.push(`/profile/${this.user._id}`)
-
-    }
+    OpenProfile() {
+      this.newNotification = false;
+      this.$router.push(`/profile/${this.user._id}`);
+    },
   },
   computed: {
     user() {
@@ -245,16 +191,20 @@ this.search=false
     filterBy() {
       return this.$store.getters.filterBy;
     },
-  },
-   watch: {
-    user: function(newVal){
-      if (newVal) this.createOrderSocket()
+    notification(){
+      return this.newNotification
     }
+  },
+  watch: {
+    user: function (newVal) {
+      if (newVal) this.createOrderSocket();
+    },
   },
   components: {
     stayFilter,
     stayFilterSmall,
-    staysModal
+    staysModal,
+    dropDownMenu
   },
 };
 </script>
