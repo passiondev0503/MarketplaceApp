@@ -103,7 +103,10 @@ export default {
     };
   },
   created() {
-    // this.getDistanceFromLatLonInKm(32.0853,34.7818,this.stay.loc.lat,this.stay.loc.lng)
+    const wasLiked = this.stay.likedByUsers.findIndex(reviewer => reviewer._id === this.user._id)
+            if (wasLiked >= 0) {
+              this.isLiked=true
+            }
   },
   methods: {
     stayDetails(stayId) {
@@ -113,21 +116,11 @@ export default {
       this.isLiked = !this.isLiked;
       this.$emit("setLiked", this.stay);
     },
-    //     getDistanceFromLatLonInKm(lat1,lng1,lat2,lng2) {
-    // var R = 6371;
-    // var dLat = (lat2-lat1) * (Math.PI/180);
-    // var dLon = (lng2-lng1) * (Math.PI/180);
-    // var a =
-    //   Math.sin(dLat/2) * Math.sin(dLat/2) +
-    //   Math.cos((lat1)* (Math.PI/180)) * Math.cos((lat2)* (Math.PI/180)) *
-    //   Math.sin(dLon/2) * Math.sin(dLon/2)
-    //   ;
-    // var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-    // this.distance = R * c;
-
-    // },
   },
   computed: {
+    user(){
+      return this.$store.getters.user
+    },
     setTotalRate() {
       if (!this.stay.reviews.length) {
         var total = 0;

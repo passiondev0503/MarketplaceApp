@@ -20,7 +20,6 @@ export default {
   },
   async created() {
     await this.$store.dispatch({ type: "loadStays" });
-    
   },
 
   methods: {

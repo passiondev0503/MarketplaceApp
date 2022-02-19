@@ -185,9 +185,7 @@ export default {
         return false;
       }
     },
-    user() {
-      return this.$store.getters.user;
-    },
+
     filterBy() {
       return this.$store.getters.filterBy;
     },

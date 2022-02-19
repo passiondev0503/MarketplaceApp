@@ -13,6 +13,7 @@
               <p>{{ incommingOrders.length }}</p>
             </div>
           </div>
+
           <div
             @click="setInfo('revenues')"
             class="main-bar-revenue options"
@@ -93,26 +94,6 @@
                 </el-table-column>
               </el-table>
             </div>
-
-            <div class="orders-table">
-              <el-table
-                v-if="orders && userOrders && sent"
-                :data="myOrdersToShow"
-                stripe
-                style="width: 100%"
-              >
-                <el-table-column prop="Dates" label="Stay Dates">
-                </el-table-column>
-                <el-table-column prop="guests" label="Guests">
-                </el-table-column>
-                <el-table-column prop="status" label="Status">
-                </el-table-column>
-                <el-table-column prop="totalPrice" label="Price">
-                </el-table-column>
-                <el-table-column prop="createdAt" label="Ordered at">
-                </el-table-column>
-              </el-table>
-            </div>
           </div>
 
           <div v-if="revenues && revenuePerStay" class="revenue-container">
@@ -166,6 +147,7 @@
               </el-table-column>
             </el-table>
           </div>
+
         </div>
       </div>
     </div>

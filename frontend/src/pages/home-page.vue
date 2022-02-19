@@ -106,7 +106,7 @@ export default {
     goTo(here){
   this.$router.push(here)
 },
-  handleScroll(e) {
+    handleScroll(e) {
       this.scroll = window.scrollY || window.scrollTop
     },
     setFilter(filterBy){
