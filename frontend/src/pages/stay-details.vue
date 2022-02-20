@@ -8,6 +8,7 @@
     </div>
     <section v-else>
       <h1>{{ stay.name }}</h1>
+    <button class="remove-btn" v-if="user._id===stay.host._id" @click.stop="del(stay._id)">Delete Stay</button>
 
       <div class="detsils-header">
         <span>
@@ -88,7 +89,6 @@
             </div>
             <img :src="`${stay.host.imgUrl}`" />
           </div>
-
           <div class="main-info">
             <stay-info :stay="stay"></stay-info>
 
@@ -165,6 +165,10 @@ export default {
     this.review.by = this.user;
   },
   methods: {
+    async del(stayId){
+      await this.$store.dispatch({type:'removeStay', stayId})
+      this.$router.push('/stay')
+    },
     async loadStay(stayId) {
       this.stay = await this.$store.dispatch({ type: "getStay", stayId });
       if (this.stay) {

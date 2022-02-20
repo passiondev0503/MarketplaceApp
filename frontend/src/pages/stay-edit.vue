@@ -76,7 +76,7 @@
     </label>
 <label>
   Price:
-    <input class="edit-input" type="number" min="0" v-model="newStay.price">
+    <input class="edit-input-small" type="number" min="0" v-model="newStay.price">
 </label>
 
     <p class="edit-header">Describe the listing's surroundings and transportation options</p>
@@ -150,8 +150,8 @@ export default {
       this.newStay.host.imgUrl=this.user.imgUrl
     },
     setLoc(loc){
-      this.newStay.loc.lat=loc.lat
-      this.newStay.loc.lng=loc.lng
+      this.newStay.loc.lat=Number(loc.lat)
+      this.newStay.loc.lng=Number(loc.lng)
     },
     saveImg(imgUrl) {
       this.newStay.imgUrls.push(imgUrl)
@@ -161,7 +161,13 @@ export default {
       this.pageCount+=pulusOrMinus
     },
     saveStay(){
+      this.newStay.capacity=Number(this.newStay.capacity)
+      this.newStay.bedroom=Number(this.newStay.bedroom)
+      this.newStay.bathrooms=Number(this.newStay.bathrooms)
+      this.newStay.beds=Number(this.newStay.beds)
+      this.newStay.price=Number(this.newStay.price)
       this.$store.dispatch({type:"addStay",stay:this.newStay})
+      this.$router.push('/stay')
     }
   },
   computed: {

@@ -3,6 +3,16 @@
         font-size: rem(26px);
         padding-top: 15px;
     }
+    .remove-btn{
+        background-color: transparent;
+        border: none;
+        text-decoration: underline;
+        &:hover{
+            cursor: pointer;
+        text-decoration: none;
+
+        }
+    }
     .detsils-header {
         padding-bottom: 15px;
         padding-top: 15px;

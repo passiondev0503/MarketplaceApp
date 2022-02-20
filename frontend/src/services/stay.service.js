@@ -43,7 +43,6 @@ async function getByUserId(id) {
 
 async function remove(id) {
     // return storageService.remove(STAY_KEY, id)
-
     return httpService.delete(`stay/${id}`)
 }
 
